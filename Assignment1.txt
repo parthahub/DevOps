@@ -231,3 +231,27 @@ controlplane $
 controlplane $ who
 root     pts/0        2020-10-07 07:12 (172.17.0.36)
 controlplane $
+
+/********* Which command is used to switch directory from one to another ***********/
+controlplane $ tree parent
+parent
+└── child1
+    └── child2
+        └── free.txt
+
+2 directories, 1 file
+controlplane $ cd parent/child1/child2/
+controlplane $ ls
+free.txt
+controlplane $ pwd
+/root/parent/child1/child2
+controlplane $ cd ..
+controlplane $ pwd
+/root/parent/child1
+controlplane $ cd ~
+controlplane $ pwd
+/root
+controlplane $ cd parent
+controlplane $ pwd
+/root/parent
+controlplane $
