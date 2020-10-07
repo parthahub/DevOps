@@ -255,3 +255,41 @@ controlplane $ cd parent
 controlplane $ pwd
 /root/parent
 controlplane $
+
+/********* How do you reboot the system? ***********/
+
+controlplane $ sudo reboot
+Connection to host01 closed by remote host.
+Connection to host01 closed.
+
+The environment has expired.
+
+Please refresh to get a new environment.
+
+/********* How do you shudown the system? ***********/
+
+master $ shutdown +10 "System going down for regular maintenance in another 10 mins"
+Shutdown scheduled for Wed 2020-10-07 11:24:25 UTC, use 'shutdown -c' to cancel.
+master $ shutdown now "System going down immediately"
+Connection to host01 closed by remote host.
+Connection to host01 closed.
+
+The environment has expired.
+
+Please refresh to get a new environment.
+
+/********* Display all the major running processes in the system ***********/
+master $ ps
+  PID TTY          TIME CMD
+  988 pts/0    00:00:00 bash
+16505 pts/0    00:00:00 ps
+master $ ps -eo cmd,pid,user,ppid | grep -i /go
+grep --color=auto -i /go    16559 root       988
+master $ ps -eo cmd,pid,user,ppid | grep -i /Dir1
+grep --color=auto -i /Dir1  16616 root       988
+master $ ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 11:17 ?        00:00:01 /sbin/init nosplash nosplash
+root         2     0  0 11:17 ?        00:00:00 [kthreadd]
+root         3     2  0 11:17 ?        00:00:00 [kworker/0:0]
+root         4     2  0 11:17 ?        00:00:00 [kworker/0:0H]
